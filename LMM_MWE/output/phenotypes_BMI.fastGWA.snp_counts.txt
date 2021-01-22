@@ -1,0 +1,2 @@
+/Users/rommelnunez/Documents/Github/orientation/LMM_MWE/output/cache/imputed_genotypes_chr21.phenotypes.fastGWA.gz: 25
+/Users/rommelnunez/Documents/Github/orientation/LMM_MWE/output/cache/imputed_genotypes_chr22.phenotypes.fastGWA.gz: 22

@@ -1,0 +1,151 @@
+Start time: Fri Jan 22 20:12:27 2021
+
+              |==============================|
+              |        REGENIE v1.0.5.9      |
+              |==============================|
+
+Copyright (c) 2020 Joelle Mbatchou and Jonathan Marchini.
+Distributed under the MIT License.
+
+Log of output saved in file : output/phenotypes_ASTHMA_T2D.regenie.log
+
+Options in effect:
+  --step 1 \
+  --bed genotypes21_22 \
+  --phenoFile output/phenotypes.regenie_phenotype \
+  --covarFile output/phenotypes.regenie_covar \
+  --extract output/cache/genotypes21_22.qc_pass.snplist \
+  --keep output/cache/genotypes21_22.qc_pass.id \
+  --bt \
+  --bsize 1000 \
+  --lowmem \
+  --lowmem-prefix output \
+  --threads 8 \
+  --out output/phenotypes_ASTHMA_T2D.regenie
+
+Fitting null model
+ * bim              : [genotypes21_22.bim] n_snps = 16577
+   -keeping only variants specified in [output/cache/genotypes21_22.qc_pass.snplist]
+     +number of variants remaining in the analysis = 16455
+ * fam              : [genotypes21_22.fam] n_samples = 100
+   -keeping only individuals specified in [output/cache/genotypes21_22.qc_pass.id]
+     +number of genotyped individuals to keep in the analysis = 100
+ * bed              : [genotypes21_22.bed]
+ * phenotypes       : [output/phenotypes.regenie_phenotype] n_pheno = 2
+   -number of phenotyped individuals = 100
+ * covariates       : [output/phenotypes.regenie_covar] n_cov = 2
+   -number of individuals with covariate data = 100
+ * number of individuals used in analysis = 100
+   -fitting null logistic regression on binary phenotypes...done (1ms) 
+   -residualizing and scaling phenotypes...done (0ms) 
+   -WARNING: Sample size is less than 5,000 so using LOOCV instead of 5-fold CV.
+ * # threads        : [8]
+ * block size       : [1000]
+ * # blocks         : [17]
+ * # CV folds       : [100]
+ * ridge data_l0    : [5 : 0.01 0.25 0.5 0.75 0.99 ]
+ * ridge data_l1    : [5 : 0.01 0.25 0.5 0.75 0.99 ]
+ * approximate memory usage : 955MB
+ * writing level 0 predictions to disk
+   -temporary files will have prefix [output_l0_Y]
+   -approximate disk space needed : 1MB
+ * setting memory...done
+
+Chromosome 21
+ block [1] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (14ms) 
+   -calc working matrices...done (993ms) 
+   -calc level 0 ridge...done (112ms) 
+ block [2] : 1000 snps  (3ms) 
+   -residualizing and scaling genotypes...done (8ms) 
+   -calc working matrices...done (988ms) 
+   -calc level 0 ridge...done (75ms) 
+ block [3] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (13ms) 
+   -calc working matrices...done (965ms) 
+   -calc level 0 ridge...done (102ms) 
+ block [4] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (13ms) 
+   -calc working matrices...done (998ms) 
+   -calc level 0 ridge...done (103ms) 
+ block [5] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (10ms) 
+   -calc working matrices...done (992ms) 
+   -calc level 0 ridge...done (93ms) 
+ block [6] : 1000 snps  (1ms) 
+   -residualizing and scaling genotypes...done (9ms) 
+   -calc working matrices...done (990ms) 
+   -calc level 0 ridge...done (89ms) 
+ block [7] : 1000 snps  (3ms) 
+   -residualizing and scaling genotypes...done (11ms) 
+   -calc working matrices...done (1046ms) 
+   -calc level 0 ridge...done (148ms) 
+ block [8] : 948 snps  (3ms) 
+   -residualizing and scaling genotypes...done (2ms) 
+   -calc working matrices...done (886ms) 
+   -calc level 0 ridge...done (65ms) 
+Chromosome 22
+ block [9] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (11ms) 
+   -calc working matrices...done (1077ms) 
+   -calc level 0 ridge...done (92ms) 
+ block [10] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (7ms) 
+   -calc working matrices...done (2812ms) 
+   -calc level 0 ridge...done (110ms) 
+ block [11] : 1000 snps  (4ms) 
+   -residualizing and scaling genotypes...done (16ms) 
+   -calc working matrices...done (1467ms) 
+   -calc level 0 ridge...done (124ms) 
+ block [12] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (10ms) 
+   -calc working matrices...done (1150ms) 
+   -calc level 0 ridge...done (108ms) 
+ block [13] : 1000 snps  (3ms) 
+   -residualizing and scaling genotypes...done (4ms) 
+   -calc working matrices...done (1136ms) 
+   -calc level 0 ridge...done (114ms) 
+ block [14] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (11ms) 
+   -calc working matrices...done (1196ms) 
+   -calc level 0 ridge...done (117ms) 
+ block [15] : 1000 snps  (2ms) 
+   -residualizing and scaling genotypes...done (5ms) 
+   -calc working matrices...done (1432ms) 
+   -calc level 0 ridge...done (206ms) 
+ block [16] : 1000 snps  (3ms) 
+   -residualizing and scaling genotypes...done (10ms) 
+   -calc working matrices...done (1950ms) 
+   -calc level 0 ridge...done (121ms) 
+ block [17] : 507 snps  (1ms) 
+   -residualizing and scaling genotypes...done (1ms) 
+   -calc working matrices...done (177ms) 
+   -calc level 0 ridge...done (61ms) 
+
+ Level 1 ridge with logistic regression...
+   -on phenotype 1 (ASTHMA)...done (321ms) 
+   -on phenotype 2 (T2D)...done (272ms) 
+
+Output
+------
+phenotype 1 (ASTHMA) : 
+  0.01  : Rsq = 0.0374569, MSE = 0.243134, -logLik/N = 0.679301
+  0.25  : Rsq = 0.110697, MSE = 0.222507, -logLik/N = 0.634768<- min value
+  0.5   : Rsq = 0.0974439, MSE = 0.232521, -logLik/N = 0.661394
+  0.75  : Rsq = 0.0890873, MSE = 0.243716, -logLik/N = 0.701363
+  0.99  : Rsq = 0.0974149, MSE = 0.246861, -logLik/N = 0.727263
+  * making predictions...writing LOCO predictions...done (141ms) 
+
+phenotype 2 (T2D) : 
+  0.01  : Rsq = 0.160004, MSE = 0.0619039, -logLik/N = 0.202501
+  0.25  : Rsq = 0.369109, MSE = 0.0477959, -logLik/N = 0.15851
+  0.5   : Rsq = 0.409303, MSE = 0.0442868, -logLik/N = 0.149764<- min value
+  0.75  : Rsq = 0.360959, MSE = 0.0516248, -logLik/N = 0.166509
+  0.99  : Rsq = 0.215074, MSE = 0.0908292, -logLik/N = 0.268731
+  * making predictions...writing LOCO predictions...done (130ms) 
+
+List of blup files written to: [output/phenotypes_ASTHMA_T2D.regenie_pred.list] 
+
+Elapsed time : 23.5858s
+End time: Fri Jan 22 20:12:51 2021
+

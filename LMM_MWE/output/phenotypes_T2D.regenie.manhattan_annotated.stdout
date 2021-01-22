@@ -1,0 +1,17 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: ggplot2
+`summarise()` ungrouping output (override with `.groups` argument)
+Warning message:
+Removed 1 rows containing missing values (geom_hline). 
+null device 
+          1 

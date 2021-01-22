@@ -1,0 +1,2 @@
+output/cache/imputed_genotypes_chr21_T2D.regenie.gz: 20
+output/cache/imputed_genotypes_chr22_T2D.regenie.gz: 22

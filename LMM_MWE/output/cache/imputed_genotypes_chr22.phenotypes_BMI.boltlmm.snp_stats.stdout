@@ -1,0 +1,39 @@
+                      +-----------------------------+
+                      |                       ___   |
+                      |   BOLT-LMM, v2.3.4   /_ /   |
+                      |   August 10, 2019     /_/   |
+                      |   Po-Ru Loh            //   |
+                      |                        /    |
+                      +-----------------------------+
+
+Copyright (C) 2014-2019 Harvard University.
+Distributed under the GNU GPLv3 open source license.
+
+Compiled with USE_SSE: fast aligned memory access
+Compiled with USE_MKL: Intel Math Kernel Library linear algebra
+Boost version: 1_58
+
+Command line options:
+
+bolt \
+    --phenoFile=phenotypes.txt \
+    --phenoCol=BMI \
+    --covarFile=phenotypes.txt \
+    --covarCol=SEX \
+    --covarMaxLevels=10 \
+    --qCovarCol=AGE \
+    --LDscoresFile=LDSCORE.1000G_EUR.tab.gz \
+    --geneticMapFile=genetic_map_hg19_withX.txt.gz \
+    --bgenFile=imputed_genotypes_chr22.bgen \
+    --bgenMinMAF=0.001 \
+    --bgenMinINFO=0.1 \
+    --sampleFile=imputed_genotypes.sample \
+    --statsFileBgenSnps=output/cache/imputed_genotypes_chr22.phenotypes_BMI.boltlmm.snp_stats.gz \
+    --statsFile=output/cache/imputed_genotypes_chr22.phenotypes_BMI.boltlmm.ref_stats.gz \
+    --numThreads=5 \
+    --verboseStats 
+
+ERROR: Use exactly one of the --bfile, --bfilegz, or --fam,bim,bed input formats
+       (even when analyzing imputed data, a plink file is needed for model-        fitting using a subset of SNPs, typically those directly genotyped)
+Aborting due to error processing command line arguments
+For list of arguments, run with -h (--help) option

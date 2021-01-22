@@ -1,0 +1,64 @@
+Start time: Fri Jan 22 20:12:52 2021
+
+              |==============================|
+              |        REGENIE v1.0.5.9      |
+              |==============================|
+
+Copyright (c) 2020 Joelle Mbatchou and Jonathan Marchini.
+Distributed under the MIT License.
+
+Log of output saved in file : output/cache/imputed_genotypes_chr21.log
+
+Options in effect:
+  --step 2 \
+  --bgen imputed_genotypes_chr21.bgen \
+  --sample imputed_genotypes.sample \
+  --phenoFile output/phenotypes.regenie_phenotype \
+  --covarFile output/phenotypes.regenie_covar \
+  --phenoColList ASTHMA,T2D \
+  --bt \
+  --firth \
+  --approx \
+  --pred output/phenotypes_ASTHMA_T2D.regenie_pred.list \
+  --bsize 1000 \
+  --minMAC 4 \
+  --split \
+  --threads 8 \
+  --out output/cache/imputed_genotypes_chr21
+
+Association testing mode with multithreading using OpenMP
+ * bgen             : [imputed_genotypes_chr21.bgen]
+   -summary : bgen file (v1.2 layout, compressed) with 100 named samples and 50 variants.
+   -sample file: imputed_genotypes.sample
+ * phenotypes       : [output/phenotypes.regenie_phenotype] n_pheno = 2
+   -number of phenotyped individuals = 100
+ * covariates       : [output/phenotypes.regenie_covar] n_cov = 2
+   -number of individuals with covariate data = 100
+ * number of individuals used in analysis = 100
+ * LOCO predictions : [output/phenotypes_ASTHMA_T2D.regenie_pred.list] n_files = 2
+   -file [/Users/rommelnunez/Documents/GitHub/orientation/LMM_MWE/output/phenotypes_ASTHMA_T2D.regenie_1.loco] for phenotype 'ASTHMA'
+   -file [/Users/rommelnunez/Documents/GitHub/orientation/LMM_MWE/output/phenotypes_ASTHMA_T2D.regenie_2.loco] for phenotype 'T2D'
+ * # threads        : [8]
+ * block size       : [1000]
+ * # blocks         : [1]
+ * approximate memory usage : 2MB
+ * using minimum MAC of 4 (variants with lower MAC are ignored)
+ * using fast Firth correction for logistic regression p-values less than 0.05
+
+Chromosome 21 [1 blocks in total]
+   -reading loco predictions for the chromosome...done (4ms) 
+   -fitting null logistic regression on binary phenotypes...done (0ms) 
+   -fitting null Firth logistic regression on binary phenotypes...done (0ms) 
+ block [1] : done (3ms) 
+
+Association results stored separately for each trait in files : 
+* [output/cache/imputed_genotypes_chr21_ASTHMA.regenie]
+* [output/cache/imputed_genotypes_chr21_T2D.regenie]
+
+Number of tests with Firth correction : (0/38)
+Number of failed tests : (0/0)
+Number of ignored SNPs due to low MAC : 31
+
+Elapsed time : 0.136879s
+End time: Fri Jan 22 20:12:52 2021
+
