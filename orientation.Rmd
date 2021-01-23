@@ -68,7 +68,7 @@ Load `UKB_Phenotype/data_cleaned.csv`. Note, you only need to complete the codes
 # where this .rmd file sits,
 # which is here:
 getwd()
-sub_UKBB<-read.csv("data_cleaned.csv")
+sub_UKBB<-read.csv("UKB_Phenotype/data_cleaned.csv")
 ```
 
 **Exploratory data analysis (EDA) of the data**
@@ -89,9 +89,25 @@ head(sub_UKBB) # show part of the data
 ```
 
 **Q1:** How many females and males are there in this data? Please show your code below how these numbers are computed.
- 
+
+```{r}
+sexV <- sub_UKBB$"f.22001.0.0" # retrieve sex column from data table
+mSex <- 0
+fSex <- 0
+for (value in sexV) {
+  if (value == "Male") {
+    mSex <- mSex + 1
+  } else {
+    fSex <- fSex + 1
+  }
+}
+cat("There are ", mSex, " males and ", fSex, "females in this dataset.")
+```
+
 **Q2:** Can you tell what kind of trait it is for tinnitus? 
 A.Binary trait. B. Continuous trait. 
+
+##A. Binary Trait.
 
 **Q3:** Recode f.4803
 
@@ -133,6 +149,8 @@ for (i in new_column_names)
 
 What do you think has been achieved by recoding these fields?
 
+##The responses to said question have been translated to binary 0 or 1 value indicating a positive or negative response.
+
 **Q4:** Define case and control status of tinnitus for each participant in the study:
 
 ```{r}
@@ -155,6 +173,10 @@ head(df_recode,10)
 
 How many cases and how many controls do we have for this phenotpype?
 
+```{r}
+table(df_recode$cases)
+```
+
 **Q5:** Extract a subset of columns from all participants for association study. 
 
 ```{r}
@@ -165,7 +187,10 @@ head(df_cases,10)
 ```
 Please modify codes above to extract all the controls and keep only these columns: `FID`, `IID`, `cases`, `f.22001.0.0`, `f.21003.0.0`, `f.21003.1.0`, `f.21003.2.0`, `f.21003.3.0`. Please show the first 10 rows of the output.
 ```{r}
-# YOUR CODE
+df_cases  <- df_recode %>%
+  select(IID,FID,cases,f.22001.0.0, f.21003.0.0, f.21003.1.0, f.21003.2.0, f.21003.3.0)%>% 
+  filter(cases==TRUE)
+head(df_cases,10)  
 ```
 \newpage
 
@@ -173,11 +198,15 @@ Please modify codes above to extract all the controls and keep only these column
  
 **Q6:** Field 21003 contains the information of the age of participants, same as field 4803. Note that some of them have more than one age. Can you guess why?
 
+##Was there a second trial done a few years later for some patients?
+
 **Q7:** For those with more than one age records, which age do you think should be used in the genetic association analysis?
+
+##The first age which has a value for each patient.
 
 **Q8:** Please compute a summary of age information for controls (you can use `summary()` function in R):
 ```{r}
-#YOUR CODE
+summary(df_cases$f.21003.0.0)
 ```
 \newpage
 
@@ -200,10 +229,16 @@ fit_1<-lm(mpg ~ weight, auto_data)
 summary(fit_1)
 ```
 
+##There is an association because the R-squared value is .6926 which is not 0. It is appearing to be positive. Since the p-value is much less than 0.05, we reject the null hypothesiss and say that the association is significant.
+
 **Q10:** Please create a new variable to indicate cars having MPG greater than 23 as 1, otherwise 0, then use logistic regrssion via `glm()` function to analyze association between weight and this new variable you just created. Please comment on what you find.
-
-**Q11:** Find the `Estimates` from your asociation results summary. How do you interpret the estimated effects of weight in the context of linear regression, and in the context of logistic regression? (this question might be a bit challenging if you are not familiar with regression analysis; don't sweat if you cannot find the answer for it).
-
 ```{r}
-#YOUR CODE
+carsMPGG <- as.integer(auto_data$mpg > 23)
+fitline <- glm(carsMPGG ~ weight, auto_data, family = binomial)
+summary(fitline)
 ```
+
+**Q11:** Find the `Estimates` from your association results summary. How do you interpret the estimated effects of weight in the context of linear regression, and in the context of logistic regression? (this question might be a bit challenging if you are not familiar with regression analysis; don't sweat if you cannot find the answer for it).
+
+##If weight were 1 unit higher, the estimate for said intercept would increase by 11.449 units. This seems significant to me because a small change in weight does a lot to the model.
+
